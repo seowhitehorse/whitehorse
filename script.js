@@ -94,6 +94,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // Show/Hide Corporate Partners section
+        const corporatePartnersSection = document.getElementById('corporate-partners');
+        if (corporatePartnersSection) {
+            if (filter === 'corporate') {
+                corporatePartnersSection.style.display = 'block';
+            } else {
+                corporatePartnersSection.style.display = 'none';
+            }
+        }
+
         // Update dynamic content sections
         tabContents.forEach(content => {
             content.classList.remove('active');
