@@ -255,6 +255,45 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Hide scrollbar for horizontal scroll */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            /* Internet Explorer 10+ */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Auto-scroll animation for corporate partners */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll {
+            animation: scroll 30s linear infinite;
+        }
+
+        /* Faster scroll on mobile devices */
+        @media (max-width: 768px) {
+            .animate-scroll {
+                animation: scroll 15s linear infinite;
+            }
+        }
+
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 
@@ -281,6 +320,8 @@
                     class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">SOCIAL</a>
                 <a href="#expertise"
                     class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">EXPERTISE</a>
+                <a href="#testimonials"
+                    class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">TESTIMONIALS</a>
                 <a href="#contact"
                     class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">CONTACT</a>
             </div>
@@ -306,6 +347,8 @@
                     class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">SOCIAL</a>
                 <a href="#expertise"
                     class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">EXPERTISE</a>
+                <a href="#testimonials"
+                    class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">TESTIMONIALS</a>
                 <a href="#contact"
                     class="text-black hover:text-neutral-700 transition-colors text-xs font-medium tracking-widest uppercase">CONTACT</a>
             </div>
@@ -345,7 +388,7 @@
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] wedding group cursor-pointer"
                     data-category="wedding">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
-                            src="https://ik.imagekit.io/eemxnd4m3/Wedding/wedding1.webp?updatedAt=1767160064788"
+                            src="https://ik.imagekit.io/eemxnd4m3/Wedding/wedding1.webp?updatedAt=1767166373170"
                             loading="lazy" alt="Wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
@@ -475,8 +518,8 @@
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] government group cursor-pointer"
                     data-category="government">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
-                            src="https://ik.imagekit.io/eemxnd4m3/Government/governmant5.webp"
-                            loading="lazy" alt="Government"
+                            src="https://ik.imagekit.io/eemxnd4m3/Government/governmant5.webp" loading="lazy"
+                            alt="Government"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
@@ -531,8 +574,8 @@
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] government group cursor-pointer"
                     data-category="government">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
-                            src="https://ik.imagekit.io/eemxnd4m3/Government/government12.webp"
-                            loading="lazy" alt="Government"
+                            src="https://ik.imagekit.io/eemxnd4m3/Government/government12.webp" loading="lazy"
+                            alt="Government"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
@@ -746,17 +789,19 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Timeless Love
                             Stories</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">Every wedding is a unique love story
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Every wedding is a unique
+                            love story
                             waiting to be told. We craft celebrations that honor your journey, traditions, and dreams.
                             From intimate ceremonies to grand celebrations, we ensure every moment reflects the depth of
                             your love and the joy of your union.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">Our approach combines traditional values
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Our approach combines
+                            traditional values
                             with contemporary elegance, creating weddings that are both meaningful and memorable. We
                             understand that your wedding day is not just an event—it's the beginning of your forever.
                         </p>
                     </div>
                     <div class="flex justify-center lg:justify-end">
-                        <img src="https://ik.imagekit.io/eemxnd4m3/Wedding/wedding1.webp?updatedAt=1767160064788"
+                        <img src="https://ik.imagekit.io/eemxnd4m3/Wedding/wedding.webp?updatedAt=1767166307791"
                             loading="lazy" alt="Timeless Wedding Celebration"
                             class="w-full max-w-md h-auto object-cover rounded-lg shadow-lg">
                     </div>
@@ -772,10 +817,12 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Sacred
                             Rituals & Traditions</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We honor the sacred traditions that make
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We honor the sacred
+                            traditions that make
                             Indian weddings so special. From the vibrant Mehendi ceremonies to the solemn wedding vows,
                             every ritual is planned with reverence and attention to cultural significance.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">Our team works closely with families to
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Our team works closely with
+                            families to
                             ensure that all customs are observed with the utmost respect, while seamlessly integrating
                             modern elements that reflect your personal style and preferences.</p>
                     </div>
@@ -786,11 +833,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Unforgettable
                             Celebrations</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">From the first dance to the last blessing,
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">From the first dance to the
+                            last blessing,
                             we orchestrate every moment to perfection. Our celebrations are designed to create lasting
                             memories for you and your loved ones, with attention to every detail that makes your day
                             extraordinary.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">We believe in creating an atmosphere of
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We believe in creating an
+                            atmosphere of
                             joy, love, and celebration that reflects your unique personality as a couple, ensuring your
                             wedding day becomes a cherished memory for generations to come.</p>
                     </div>
@@ -809,11 +858,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Official
                             Ceremonies & Protocol</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We specialize in organizing high-profile
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We specialize in organizing
+                            high-profile
                             government events with impeccable attention to protocol and ceremony. From state functions
                             to official inaugurations, we ensure every detail meets the highest standards of formality
                             and respect.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">Our expertise in government protocol
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Our expertise in government
+                            protocol
                             ensures seamless coordination with officials, security arrangements, and ceremonial
                             requirements while maintaining the dignity and solemnity these occasions demand.</p>
                     </div>
@@ -834,11 +885,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Public Sector
                             Programs</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">Our team excels in managing large-scale
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Our team excels in managing
+                            large-scale
                             public sector events, from community programs to national celebrations. We understand the
                             importance of public engagement and ensure every event serves its intended purpose
                             effectively.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">With experience in crowd management,
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">With experience in crowd
+                            management,
                             security coordination, and media relations, we deliver events that not only meet
                             governmental objectives but also create positive public experiences.</p>
                     </div>
@@ -849,11 +902,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Diplomatic &
                             State Functions</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We handle diplomatic receptions, state
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We handle diplomatic
+                            receptions, state
                             banquets, and international conferences with the precision and elegance required for such
                             prestigious occasions. Our understanding of cultural sensitivities ensures respectful and
                             successful events.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">From venue selection to catering
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">From venue selection to
+                            catering
                             arrangements, every aspect is carefully planned to reflect the dignity of the office and
                             create an environment conducive to diplomatic relations and official business.</p>
                     </div>
@@ -872,11 +927,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Corporate
                             Conferences & Summits</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We create impactful corporate events that
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We create impactful corporate
+                            events that
                             drive business objectives and strengthen professional relationships. From international
                             conferences to executive summits, our events are designed to inspire, educate, and connect
                             industry leaders.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">Our comprehensive approach includes
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Our comprehensive approach
+                            includes
                             strategic planning, technology integration, and seamless execution that ensures your
                             corporate message is delivered effectively while providing an exceptional experience for all
                             attendees.</p>
@@ -898,11 +955,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Product
                             Launches & Brand Activations</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We transform product launches into
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We transform product launches
+                            into
                             memorable brand experiences that generate buzz and drive market engagement. Our creative
                             approach ensures your brand message resonates with your target audience and creates lasting
                             impressions.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">From concept development to post-event
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">From concept development to
+                            post-event
                             analysis, we provide end-to-end solutions that maximize your brand's visibility and impact
                             in the marketplace while delivering measurable results for your business.</p>
                     </div>
@@ -913,11 +972,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Annual Meets
                             & Team Building</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We design corporate gatherings that
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We design corporate
+                            gatherings that
                             strengthen team bonds and celebrate company achievements. Our annual meets combine
                             professional development with engaging activities that motivate teams and reinforce company
                             culture.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">Whether it's an intimate leadership
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Whether it's an intimate
+                            leadership
                             retreat or a large-scale company celebration, we create environments that foster
                             collaboration, recognize achievements, and inspire continued excellence in your
                             organization.</p>
@@ -937,11 +998,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Luxury
                             Destination Experiences</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We curate extraordinary destination events
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We curate extraordinary
+                            destination events
                             in the world's most breathtaking locations. From beachfront ceremonies to mountain retreats,
                             we transform stunning venues into unforgettable celebration spaces that reflect your vision.
                         </p>
-                        <p class="text-muted-brown text-base leading-relaxed">Our destination expertise includes venue
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Our destination expertise
+                            includes venue
                             scouting, local vendor coordination, and cultural integration, ensuring your event captures
                             the essence of the location while maintaining the highest standards of luxury and service.
                         </p>
@@ -963,11 +1026,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Seamless
                             Travel & Logistics</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We handle every aspect of destination
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We handle every aspect of
+                            destination
                             event logistics, from guest travel arrangements to accommodation coordination. Our
                             comprehensive planning ensures your guests enjoy a stress-free journey and comfortable stay
                             throughout the celebration.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">Our logistics expertise includes
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">Our logistics expertise
+                            includes
                             transportation coordination, customs assistance, and local support services, making
                             destination events as smooth and enjoyable as local celebrations for all your guests.</p>
                     </div>
@@ -978,11 +1043,13 @@
                     <div class="space-y-6">
                         <h3 class="text-3xl md:text-4xl font-playfair text-brown font-light tracking-wide">Scenic Venues
                             & Cultural Integration</h3>
-                        <p class="text-muted-brown text-base leading-relaxed">We specialize in selecting and
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">We specialize in selecting
+                            and
                             transforming scenic venues that provide the perfect backdrop for your celebration. Our
                             approach integrates local culture and traditions, creating authentic experiences that honor
                             both your heritage and the destination's unique character.</p>
-                        <p class="text-muted-brown text-base leading-relaxed">From heritage palaces to pristine beaches,
+                        <p class="text-muted-brown text-base leading-relaxed text-justify">From heritage palaces to
+                            pristine beaches,
                             we work with the finest venues to create magical settings that provide stunning photography
                             opportunities and unforgettable memories for you and your guests.</p>
                     </div>
@@ -1044,7 +1111,7 @@
                             <!-- About Text -->
                             <div class="space-y-6">
                                 <!-- Company Description -->
-                                <p class="text-muted-black text-sm leading-relaxed font-inter">
+                                <p class="text-muted-black text-sm leading-relaxed font-inter text-justify">
                                     At White Horse Event Management, every celebration is an expression of emotion,
                                     elegance, and excellence. We believe that weddings are not just events - they are
                                     once-in-a-lifetime stories woven with love, culture, and dreams. Our team transforms
@@ -1100,7 +1167,7 @@
                             <!-- About Text -->
                             <div class="space-y-6">
                                 <!-- Company Description -->
-                                <p class="text-muted-black text-sm leading-relaxed font-inter">
+                                <p class="text-muted-black text-sm leading-relaxed font-inter text-justify">
                                     At White Horse Event Management, we understand the gravity and significance of
                                     government events. Our approach to public sector celebrations is rooted in protocol
                                     precision, institutional respect, and unwavering attention to ceremonial detail. We
@@ -1157,7 +1224,7 @@
                             <!-- About Text -->
                             <div class="space-y-6">
                                 <!-- Company Description -->
-                                <p class="text-muted-black text-sm leading-relaxed font-inter">
+                                <p class="text-muted-black text-sm leading-relaxed font-inter text-justify">
                                     At White Horse Event Management, we elevate corporate gatherings into powerful
                                     business experiences. Our corporate event expertise focuses on strategic brand
                                     integration, professional execution, and measurable impact. We understand that every
@@ -1213,7 +1280,7 @@
                             <!-- About Text -->
                             <div class="space-y-6">
                                 <!-- Company Description -->
-                                <p class="text-muted-black text-sm leading-relaxed font-inter">
+                                <p class="text-muted-black text-sm leading-relaxed font-inter text-justify">
                                     At White Horse Event Management, we transform extraordinary destinations into the
                                     perfect backdrop for your most important celebrations. Our destination event
                                     expertise combines luxury planning with logistical mastery, cultural sensitivity,
@@ -2042,7 +2109,7 @@
                 <!-- Wedding Expertise Image -->
                 <div id="wedding-expertise-image" class="expertise-image-content active">
                     <div class="flex justify-center">
-                        <img src="https://ik.imagekit.io/eemxnd4m3/Wedding/wedding%20expertise.webp?updatedAt=1767160306326"
+                        <img src="https://ik.imagekit.io/eemxnd4m3/Wedding/wedding%20expertise.jpg?updatedAt=1767165318056"
                             alt="Wedding Event Expertise"
                             class="w-full max-w-5xl h-auto object-contain rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
                             loading="lazy" decoding="async">
@@ -2081,6 +2148,253 @@
             </div>
         </div>
     </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="px-4 md:px-8 lg:px-16 pt-4 pb-12 md:pt-6 md:pb-16"
+        style="background-color: #fef1e1;"></section>
+    <div class="max-w-4xl mx-auto">
+        <!-- Testimonials Title -->
+        <h2
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-brown text-center mb-4 md:mb-6 lg:mb-8 tracking-[0.15em] md:tracking-[0.18em] lg:tracking-[0.22em] font-light uppercase">
+            TESTIMONIALS</h2>
+
+        <!-- Single Testimonial Carousel -->
+        <div class="relative">
+            <!-- Left Arrow -->
+            <button id="prev-testimonial"
+                class="absolute left-0 md:left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 text-brown hover:text-dark-brown">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Right Arrow -->
+            <button id="next-testimonial"
+                class="absolute right-0 md:right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 text-brown hover:text-dark-brown">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+            <!-- Single Testimonial Container -->
+            <div class="mx-8 md:mx-12 lg:mx-16">
+                <div id="testimonial-content"
+                    class="bg-white p-6 md:p-8 lg:p-12 rounded-lg shadow-xl text-center min-h-[280px] md:min-h-[300px] flex flex-col justify-center">
+                    <!-- Stars -->
+                    <div class="flex justify-center text-brown mb-2 md:mb-3">
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+
+                    <!-- Testimonial Text -->
+                    <p id="testimonial-text"
+                        class="text-muted-brown text-base md:text-lg lg:text-xl leading-relaxed text-center md:text-justify font-inter mb-6 md:mb-8 max-w-3xl mx-auto">
+                    </p>
+
+                    <!-- Client Info -->
+                    <div class="border-t border-muted-brown pt-4 md:pt-6">
+                        <h4 id="testimonial-name"
+                            class="font-playfair text-brown font-medium text-lg md:text-xl lg:text-2xl mb-1 md:mb-2">
+                            Srishti Rastogi
+                        </h4>
+
+                    </div>
+                </div>
+
+                <!-- Dots Indicator -->
+                <div class="flex justify-center mt-6 md:mt-8 space-x-2">
+                    <button
+                        class="testimonial-dot active w-2 h-2 md:w-3 md:h-3 rounded-full bg-brown transition-all duration-300"
+                        data-index="0"></button>
+                    <button
+                        class="testimonial-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-muted-brown transition-all duration-300"
+                        data-index="1"></button>
+                    <button
+                        class="testimonial-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-muted-brown transition-all duration-300"
+                        data-index="2"></button>
+                    <button
+                        class="testimonial-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-muted-brown transition-all duration-300"
+                        data-index="3"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-muted-brown transition-all duration-300"
+                        data-index="4"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-muted-brown transition-all duration-300"
+                        data-index="5"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-muted-brown transition-all duration-300"
+                        data-index="6"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-muted-brown transition-all duration-300"
+                        data-index="7"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Corporate Partners Section (Only visible on Corporate page) -->
+    <section id="corporate-partners" class="px-8 md:px-16 py-16" style="display: none; background-color: #ffe5d4;">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Title -->
+            <h2
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-brown text-center mb-8 md:mb-12 tracking-[0.15em] md:tracking-[0.18em] lg:tracking-[0.22em] font-light uppercase">
+                OUR CORPORATE PARTNERS
+            </h2>
+
+            <!-- Auto-scrolling Partners Container -->
+            <div class="overflow-hidden relative">
+                <div class="flex animate-scroll space-x-8 md:space-x-12">
+                    <!-- First set of logos -->
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/bajaj.jpeg" alt="Bajaj"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/hitachi.jpeg" alt="Hitachi"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/assocham.jpeg" alt="ASSOCHAM"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/primal.jpeg" alt="Primal"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/tvs%20credit.jpeg" alt="TVS Credit"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/jsw.jpeg" alt="JSW"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/sbi.jpeg" alt="SBI"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/mahindra.jpeg" alt="Mahindra"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/rbi.jpeg" alt="RBI"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/iim.jpeg" alt="IIM"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/bit.jpeg" alt="BIT"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/jspcb.jpeg" alt="JSPCB"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/mecon.jpeg" alt="MECON"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/uco%20bank.jpeg" alt="UCO Bank"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/medanta.jpeg" alt="Medanta"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/tata.jpeg" alt="TATA"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/sail.jpeg" alt="SAIL"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/jac%20gov.jpeg" alt="JAC Government"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/hindalco.jpeg" alt="Hindalco"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+
+                    <!-- Duplicate set for seamless loop -->
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/bajaj.jpeg" alt="Bajaj"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/hitachi.jpeg" alt="Hitachi"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/assocham.jpeg" alt="ASSOCHAM"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/primal.jpeg" alt="Primal"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/tvs%20credit.jpeg" alt="TVS Credit"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div
+                        class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[120px] md:min-w-[150px]">
+                        <img src="https://ik.imagekit.io/eemxnd4m3/whem%20logos/jsw.jpeg" alt="JSW"
+                            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- Spacer -->
+    <div class="py-8"></div>
 
     <!-- Contact Section -->
     <section id="contact" class="px-8 md:px-16 py-16 bg-light-peach">
@@ -2217,12 +2531,9 @@
 
     <!-- WhatsApp Float Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/919431581052" target="_blank"
-            class="bg-white border border-brown text-brown hover:bg-peach hover:text-dark-brown w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
-            </svg>
+        <a href="https://wa.me/919431581052" target="_blank" class="hover:scale-110 transition-transform duration-300">
+            <img src="https://ik.imagekit.io/eemxnd4m3/Wedding/whatsapp%20logo.png?updatedAt=1767165554876"
+                alt="WhatsApp" class="w-16 h-16 object-contain">
         </a>
     </div>
 
@@ -2314,6 +2625,103 @@
             prefetchLink.rel = 'prefetch';
             prefetchLink.href = 'index.html';
             document.head.appendChild(prefetchLink);
+        });
+    </script>
+
+    <!-- Testimonials Carousel JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const testimonials = [
+                {
+                    text: "Such a lovely experience! One meeting and they could tell exactly what we wanted..took the stress out of the wedding celebration arrangements in an instant. We knew we'll get more than what we want and how we want the work to be done! Such a delight and the day of the event, was in awe of the arrangement. Very thoughtful team and very proactive! Couldn't recommend more!",
+                    name: "Srishti Rastogi",
+                    details: "Wedding Celebration"
+                },
+                {
+                    text: "We celebrated our parents 50th wedding anniversary and Taranbir's team did a fab job! The decor was very elegant and apt for the golden jubilee celebrations. Thank You!",
+                    name: "Ashmi Sinha"
+                },
+                {
+                    text: "We had a very good experience with White Horse Event management. Their planning, design and execution was excellent. We will recommend it highly to all.",
+                    name: "Santosh Kumar"
+                },
+                {
+                    text: "It was a beautifully executed event. Everything was upto our expectations. Thank you, White Horse for making the event so special.",
+                    name: "Rachna Kumar"
+                },
+                {
+                    text: "We came to know about white horse and decided to meet them for a wedding in our family. From the very beginning they were realistic and they knew their job well. From decor to entertainment everything was exceptional and as per our requirement. It was a 3 months intensive planning and numerous calls, thank you taranbir for the patience and the wonderful wedding.",
+                    name: "Shilpa Jain"
+                },
+                {
+                    text: "Nice event management company reasonable charge. Good service",
+                    name: "Kaushal Omar"
+                },
+                {
+                    text: "Awesome place where you can find all solution for any type of event.",
+                    name: "Vivek Gupta"
+                },
+                {
+                    text: "We wanted to take a moment to share our sincere gratitude for the exceptional event management and decoration services provided by your team, White Horse Event Management for our Wedding celebrations. The decorations were absolutely stunning—everything was beautifully arranged. The attention to detail was impeccable, and the ambiance your team created set the perfect tone for the event. A special thank you to you, Taranbir Sahni for overseeing everything personally and ensuring that every part of the event was flawless.",
+                    name: "Menaka Malik"
+                }
+            ];
+
+            let currentIndex = 0;
+            const testimonialText = document.getElementById('testimonial-text');
+            const testimonialName = document.getElementById('testimonial-name');
+            const testimonialDetails = document.getElementById('testimonial-details');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            const dots = document.querySelectorAll('.testimonial-dot');
+
+            function updateTestimonial(index) {
+                const testimonial = testimonials[index];
+                testimonialText.textContent = `"${testimonial.text}"`;
+                testimonialName.textContent = testimonial.name;
+                // testimonialDetails.textContent = testimonial.details; // Removed details display
+
+                // Update dots
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                        dot.classList.remove('bg-muted-brown');
+                        dot.classList.add('bg-brown');
+                    } else {
+                        dot.classList.remove('active');
+                        dot.classList.remove('bg-brown');
+                        dot.classList.add('bg-muted-brown');
+                    }
+                });
+            }
+
+            function nextTestimonial() {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                updateTestimonial(currentIndex);
+            }
+
+            function prevTestimonial() {
+                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                updateTestimonial(currentIndex);
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', nextTestimonial);
+            prevBtn.addEventListener('click', prevTestimonial);
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateTestimonial(currentIndex);
+                });
+            });
+
+            // Auto-play (disabled)
+            // setInterval(nextTestimonial, 5000); // Change every 5 seconds
+
+            // Initialize
+            updateTestimonial(0);
         });
     </script>
 
