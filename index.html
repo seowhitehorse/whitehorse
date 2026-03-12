@@ -375,7 +375,8 @@
                 PORTFOLIO</h1>
 
             <!-- Filter Buttons -->
-            <div class="flex justify-center md:justify-start mb-10 md:mb-16">
+            <!-- Filter Buttons -->
+            <div class="flex flex-col gap-4 mb-10 md:mb-16">
                 <div
                     class="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-8 text-center justify-center md:justify-start">
                     <button
@@ -391,6 +392,28 @@
                         class="filter-btn inline-flex items-center justify-center text-brown hover:text-light-brown transition-colors text-xs sm:text-sm md:text-base font-playfair font-medium tracking-[0.16em] sm:tracking-[0.18em] uppercase px-3 py-1 border border-transparent leading-none"
                         data-filter="corporate">Corporate</button>
                 </div>
+
+                <!-- State Sub-filters -->
+                <div id="state-filters" style="display: none;"
+                    class="flex flex-wrap items-center gap-2 sm:gap-3 text-center justify-center md:justify-start">
+                    <button
+                        class="state-filter-btn inline-flex items-center justify-center text-brown hover:text-light-brown transition-colors text-xs sm:text-sm font-playfair font-medium tracking-[0.14em] uppercase px-2 py-1 border border-transparent leading-none"
+                        data-state="rajasthan">Rajasthan</button>
+                    <button
+                        class="state-filter-btn inline-flex items-center justify-center text-brown hover:text-light-brown transition-colors text-xs sm:text-sm font-playfair font-medium tracking-[0.14em] uppercase px-2 py-1 border border-transparent leading-none"
+                        data-state="goa">Goa</button>
+                    <button
+                        class="state-filter-btn inline-flex items-center justify-center text-brown hover:text-light-brown transition-colors text-xs sm:text-sm font-playfair font-medium tracking-[0.14em] uppercase px-2 py-1 border border-transparent leading-none"
+                        data-state="kerala">Kerala</button>
+                    <button
+                        class="state-filter-btn inline-flex items-center justify-center text-brown hover:text-light-brown transition-colors text-xs sm:text-sm font-playfair font-medium tracking-[0.14em] uppercase px-2 py-1 border border-transparent leading-none"
+                        data-state="himachal">Himachal Pradesh</button>
+                    <button
+                        class="state-filter-btn inline-flex items-center justify-center text-brown hover:text-light-brown transition-colors text-xs sm:text-sm font-playfair font-medium tracking-[0.14em] uppercase px-2 py-1 border border-transparent leading-none"
+                        data-state="uttarakhand">Uttarakhand</button>
+                </div>
+
+               
             </div>
 
             <!-- Portfolio Grid -->
@@ -615,102 +638,100 @@
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
+                <!-- Destination - Rajasthan -->
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="rajasthan" data-city="jaipur">
+                    <div class="relative overflow-hidden aspect-square rounded-lg"><img
+                            src="https://ik.imagekit.io/eemxnd4m3/Destination/destination1.webp?updatedAt=1766742798499"
+                            loading="lazy" alt="Jaipur Rajasthan destination wedding - Royal palace wedding"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                </div>
+                <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
+                    data-category="destination" data-state="rajasthan" data-city="udaipur">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination2.webp?updatedAt=1766742798518"
-                            loading="lazy"
-                            alt="Hill station wedding venues Ranchi - Mountain destination wedding coordination"
+                            loading="lazy" alt="Udaipur Rajasthan destination wedding - Lake palace wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="rajasthan" data-city="jodhpur">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination3.webp?updatedAt=1766742798820"
-                            loading="lazy"
-                            alt="Palace wedding organizers Ranchi - Royal palace destination wedding planning"
+                            loading="lazy" alt="Jodhpur Rajasthan destination wedding - Fort wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
+
+                <!-- Destination - Goa -->
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="goa" data-city="north-goa">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination4.webp?updatedAt=1766742798593"
-                            loading="lazy"
-                            alt="Resort wedding specialists Ranchi - Luxury resort destination wedding management"
+                            loading="lazy" alt="North Goa beach destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="goa" data-city="north-goa">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination5.webp?updatedAt=1766742799416"
-                            loading="lazy"
-                            alt="Beach wedding coordinators Ranchi - Seaside destination wedding planning services"
+                            loading="lazy" alt="North Goa resort destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="goa" data-city="south-goa">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination6.webp?updatedAt=1766742798360"
-                            loading="lazy"
-                            alt="Heritage venue weddings Ranchi - Historic heritage destination wedding events"
+                            loading="lazy" alt="South Goa beach destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
+
+                <!-- Destination - Kerala -->
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="kerala" data-city="kochi">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination7.webp?updatedAt=1766742798577"
-                            loading="lazy"
-                            alt="Outdoor wedding venues Ranchi - Garden and outdoor destination wedding setup"
+                            loading="lazy" alt="Kochi Kerala destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="kerala" data-city="alleppey">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination8.webp?updatedAt=1766742798668"
-                            loading="lazy"
-                            alt="Farmhouse wedding planners Ranchi - Rustic farmhouse destination wedding coordination"
+                            loading="lazy" alt="Alleppey Kerala backwater destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
+
+                <!-- Destination - Himachal Pradesh -->
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="himachal" data-city="shimla">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination9.webp?updatedAt=1766742799301"
-                            loading="lazy"
-                            alt="Lakeside wedding venues Ranchi - Scenic lakeside destination wedding events"
+                            loading="lazy" alt="Shimla Himachal Pradesh mountain destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="himachal" data-city="manali">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination10.webp?updatedAt=1766742799170"
-                            loading="lazy"
-                            alt="Vineyard wedding specialists Ranchi - Elegant vineyard destination wedding planning"
+                            loading="lazy" alt="Manali Himachal Pradesh destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
+
+                <!-- Destination - Uttarakhand -->
                 <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
-                    <div class="relative overflow-hidden aspect-square rounded-lg"><img
-                            src="https://ik.imagekit.io/eemxnd4m3/Destination/destination11.webp?updatedAt=1766742799478"
-                            loading="lazy"
-                            alt="Castle wedding organizers Ranchi - Majestic castle destination wedding events"
-                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                    </div>
-                </div>
-                <div class="portfolio-item transition-transform duration-300 hover:scale-[1.02] destination group cursor-pointer"
-                    data-category="destination">
+                    data-category="destination" data-state="uttarakhand" data-city="nainital">
                     <div class="relative overflow-hidden aspect-square rounded-lg"><img
                             src="https://ik.imagekit.io/eemxnd4m3/Destination/destination12.webp?updatedAt=1766742799116"
-                            loading="lazy"
-                            alt="International destination weddings Ranchi - Overseas destination wedding coordination"
+                            loading="lazy" alt="Nainital Uttarakhand lake destination wedding"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
@@ -2536,6 +2557,8 @@
                         <a href="#about"
                             class="block text-black hover:text-neutral-700 transition-colors text-sm font-inter tracking-[0.16em] uppercase">Our
                             Essence</a>
+                             <a href="blogs.html"
+                            class="block text-black hover:text-neutral-700 transition-colors text-sm font-inter tracking-[0.16em] uppercase">Blogs</a>
                         <a href="#contact"
                             class="block text-black hover:text-neutral-700 transition-colors text-sm font-inter tracking-[0.16em] uppercase">Contact
                             Us</a>
@@ -2560,6 +2583,131 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+
+    <!-- Destination State & City Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const stateBtns = document.querySelectorAll('.state-filter-btn');
+            const cityBtns = document.querySelectorAll('.city-filter-btn');
+            const items = document.querySelectorAll('.portfolio-item');
+            const stateFilters = document.getElementById('state-filters');
+
+            // Main category filter
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const cat = this.getAttribute('data-filter');
+
+                    // Update buttons
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'border-brown');
+                        b.classList.add('border-transparent');
+                    });
+                    this.classList.add('active', 'border-brown');
+
+                    // Show/hide state filters
+                    if (cat === 'destination') {
+                        stateFilters.style.display = 'flex';
+                    } else {
+                        stateFilters.style.display = 'none';
+                        document.querySelectorAll('[id^="city-filters-"]').forEach(d => d.style.display = 'none');
+                    }
+
+                    // Reset state/city buttons
+                    stateBtns.forEach(b => {
+                        b.classList.remove('active', 'border-brown');
+                        b.classList.add('border-transparent');
+                    });
+                    cityBtns.forEach(b => {
+                        b.classList.remove('active', 'border-brown');
+                        b.classList.add('border-transparent');
+                    });
+
+                    // Filter items
+                    items.forEach(item => {
+                        if (item.getAttribute('data-category') === cat) {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // State filter
+            stateBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const state = this.getAttribute('data-state');
+
+                    // Update buttons
+                    stateBtns.forEach(b => {
+                        b.classList.remove('active', 'border-brown');
+                        b.classList.add('border-transparent');
+                    });
+                    this.classList.add('active', 'border-brown');
+
+                    // Show city filters
+                    document.querySelectorAll('[id^="city-filters-"]').forEach(d => d.style.display = 'none');
+                    const cityDiv = document.getElementById('city-filters-' + state);
+                    if (cityDiv) cityDiv.style.display = 'flex';
+
+                    // Reset city buttons
+                    cityBtns.forEach(b => {
+                        b.classList.remove('active', 'border-brown');
+                        b.classList.add('border-transparent');
+                    });
+
+                    // Filter items
+                    items.forEach(item => {
+                        if (item.getAttribute('data-category') === 'destination' && item.getAttribute('data-state') === state) {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        } else if (item.getAttribute('data-category') === 'destination') {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // City filter
+            cityBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const city = this.getAttribute('data-city');
+                    const state = this.getAttribute('data-state');
+
+                    // Update buttons
+                    cityBtns.forEach(b => {
+                        b.classList.remove('active', 'border-brown');
+                        b.classList.add('border-transparent');
+                    });
+                    this.classList.add('active', 'border-brown');
+
+                    // Filter items
+                    items.forEach(item => {
+                        if (item.getAttribute('data-category') === 'destination' &&
+                            item.getAttribute('data-state') === state &&
+                            item.getAttribute('data-city') === city) {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        } else if (item.getAttribute('data-category') === 'destination') {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Initial load
+            setTimeout(() => {
+                const active = document.querySelector('.filter-btn.active');
+                if (active) active.click();
+            }, 100);
+        });
+    </script>
+
     <script src="script.js"></script>
 
     <!-- Advanced Image Performance Optimization -->
