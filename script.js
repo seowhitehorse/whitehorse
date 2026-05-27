@@ -104,6 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        // Show/Hide New Updates section (only for government)
+        const newUpdatesSection = document.getElementById('new-updates-section');
+        if (newUpdatesSection) {
+            if (filter === 'government') {
+                newUpdatesSection.style.display = 'block';
+            } else {
+                newUpdatesSection.style.display = 'none';
+            }
+        }
+
         // Update dynamic content sections
         tabContents.forEach(content => {
             content.classList.remove('active');
