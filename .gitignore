@@ -1,0 +1,10 @@
+# API Keys - Never push to GitHub
+config.js
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
