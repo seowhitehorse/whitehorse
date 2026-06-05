@@ -3289,8 +3289,7 @@
 
     <script>
     // ── White Horse Chatbot ──────────────────────────────────────────
-    // API key loaded from config.js (not pushed to GitHub)
-    const GEMINI_API_KEY = window.GEMINI_API_KEY || '';
+    const GROQ_API_KEY = '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';
 
     const WH_SYSTEM_PROMPT = `You are the official AI assistant for White Horse Event Management — a premium event management company based in Ranchi, Jharkhand, India. Answer ONLY about White Horse and its services.
 
@@ -3562,10 +3561,9 @@ IMPORTANT RULES
         // Hide suggestions after first message
         document.getElementById('wh-chat-suggestions').style.display = 'none';
 
-        const apiKey = window.GEMINI_API_KEY || '';
+        const apiKey = GROQ_API_KEY;
 
         if (!apiKey) {
-            // No API key — use local
             await new Promise(r => setTimeout(r, 800));
             hideTyping(); whTyping = false;
             addWHMessage('bot', getLocalReply(text));
@@ -3573,51 +3571,50 @@ IMPORTANT RULES
         }
 
         try {
-            // Build history (skip system messages, alternate user/model)
-            const rawHistory = whMessages.slice(-10).filter(m => m.role !== 'system');
-            const contents = [];
-            rawHistory.forEach(m => {
-                contents.push({
-                    role: m.role === 'assistant' ? 'model' : 'user',
-                    parts: [{ text: m.content.replace(/<[^>]+>/g, '') }]
-                });
-            });
-            // Add current user message
-            contents.push({ role: 'user', parts: [{ text: text }] });
+            // Build clean messages array for Groq
+            const messages = [
+                { role: 'system', content: WH_SYSTEM_PROMPT }
+            ];
 
-            // Try gemini-1.5-flash first (more compatible with AQ. keys)
-            const res = await fetch(
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-                {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'x-goog-api-key': apiKey
-                    },
-                    body: JSON.stringify({
-                        system_instruction: { parts: [{ text: WH_SYSTEM_PROMPT }] },
-                        contents: contents,
-                        generationConfig: { temperature: 0.7, maxOutputTokens: 500 }
-                    })
+            // Add last 6 messages from history (clean HTML tags)
+            whMessages.slice(-6).forEach(m => {
+                const cleanContent = m.content.replace(/<[^>]+>/g, '').trim();
+                if (cleanContent && (m.role === 'user' || m.role === 'assistant')) {
+                    messages.push({ role: m.role, content: cleanContent });
                 }
-            );
+            });
+
+            // Current user message with White Horse context
+            messages.push({
+                role: 'user',
+                content: `${text} (Context: White Horse Event Management Ranchi)`
+            });
+
+            const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'llama-3.1-8b-instant',
+                    messages: messages,
+                    temperature: 0.7,
+                    max_tokens: 500
+                })
+            });
 
             hideTyping(); whTyping = false;
 
             if (!res.ok) {
                 const e = await res.json().catch(() => ({}));
-                console.warn('Gemini API error:', res.status, e);
-                // 429 = rate limit — use local reply gracefully
-                if (res.status === 429) {
-                    addWHMessage('bot', getLocalReply(text));
-                } else {
-                    addWHMessage('bot', getLocalReply(text));
-                }
+                console.warn('Groq API error:', res.status, e);
+                addWHMessage('bot', getLocalReply(text));
                 return;
             }
 
             const data = await res.json();
-            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+            const reply = data?.choices?.[0]?.message?.content;
 
             if (reply && reply.trim()) {
                 addWHMessage('bot', reply
