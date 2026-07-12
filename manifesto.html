@@ -9,22 +9,27 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body { width: 100%; overflow-x: hidden; }
+
         body {
             background: #fdf6f0;
             font-family: 'Playfair Display', serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            -webkit-text-size-adjust: 100%;
         }
 
         /* Header */
         .header {
             background: #fdf6f0;
             border-bottom: 1px solid #e8d5c4;
-            padding: 18px 40px;
+            padding: 16px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
             position: sticky;
             top: 0;
             z-index: 10;
@@ -34,26 +39,7 @@
             display: flex;
             align-items: center;
             gap: 14px;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            color: #8b5e3c;
-            font-family: 'Playfair Display', serif;
-            font-size: 12px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 7px 16px;
-            border: 1px solid #bc7e59;
-            border-radius: 2px;
-            transition: all 0.2s;
-        }
-        .back-btn:hover {
-            background: #8b5e3c;
-            color: white;
+            min-width: 0;
         }
 
         .page-title {
@@ -62,11 +48,13 @@
             font-weight: 400;
             letter-spacing: 0.14em;
             text-transform: uppercase;
+            line-height: 1.3;
         }
 
         .download-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 7px;
             background: #8b5e3c;
             color: white;
@@ -75,21 +63,20 @@
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            padding: 8px 18px;
+            padding: 9px 18px;
             border-radius: 2px;
             text-decoration: none;
+            white-space: nowrap;
             transition: all 0.2s;
         }
-        .download-btn:hover {
-            background: #bc7e59;
-        }
+        .download-btn:hover { background: #bc7e59; }
 
         /* PDF Container */
         .pdf-wrapper {
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 30px 40px 40px;
+            padding: 26px 40px 48px;
             max-width: 1100px;
             width: 100%;
             margin: 0 auto;
@@ -104,43 +91,71 @@
             text-align: center;
         }
 
-        .pdf-frame-wrap {
-            flex: 1;
+        /* Rendered PDF pages */
+        .pdf-pages {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .pdf-page {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
             border: 1px solid #e8d5c4;
             border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(139,94,60,0.08);
-            min-height: 80vh;
+            box-shadow: 0 4px 24px rgba(139,94,60,0.10);
+            background: #fff;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 80vh;
-            border: none;
-            display: block;
-        }
-
-        /* Fallback message */
-        .pdf-fallback {
-            display: none;
+        /* Loading + fallback states */
+        .pdf-status {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             color: #8b5e3c;
         }
-        .pdf-fallback p {
+        .pdf-status p {
             font-size: 15px;
-            margin-bottom: 20px;
-            letter-spacing: 0.06em;
+            margin-bottom: 18px;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
         }
+        .spinner {
+            width: 34px;
+            height: 34px;
+            margin: 0 auto 22px;
+            border: 3px solid #e8d5c4;
+            border-top-color: #8b5e3c;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* Mobile */
         @media (max-width: 640px) {
-            .header { padding: 14px 16px; }
-            .page-title { font-size: 14px; }
-            .pdf-wrapper { padding: 16px 12px 24px; }
-            .pdf-frame-wrap { min-height: 70vh; }
-            iframe { min-height: 70vh; }
+            .header {
+                padding: 12px 16px;
+                gap: 10px;
+            }
+            .header-left { flex: 1 1 auto; }
+            .page-title { font-size: 13px; letter-spacing: 0.1em; }
+            .download-btn {
+                font-size: 10px;
+                padding: 8px 14px;
+            }
+            .pdf-wrapper { padding: 18px 12px 32px; }
+            .pdf-subtitle { font-size: 11px; margin-bottom: 16px; }
+            .pdf-pages { gap: 14px; }
+            .pdf-page { border-radius: 3px; }
+        }
+
+        @media (max-width: 380px) {
+            .page-title { font-size: 12px; }
+            .download-btn span { display: none; } /* icon-only download on tiny screens */
+            .download-btn { padding: 8px 12px; }
         }
     </style>
 </head>
@@ -152,29 +167,90 @@
             <span class="page-title">Taranbir for EEMA — Manifesto</span>
         </div>
         <a href="Taranbir for EEMA - 2026.pdf" download="Taranbir for EEMA - 2026.pdf" class="download-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" style="flex-shrink:0">
                 <path d="M12 16l-5-5 1.41-1.41L11 13.17V4h2v9.17l2.59-2.58L17 11l-5 5zm-7 2h14v2H5v-2z"/>
             </svg>
-            Download PDF
+            <span>Download PDF</span>
         </a>
     </header>
 
     <!-- PDF Viewer -->
     <div class="pdf-wrapper">
         <p class="pdf-subtitle">2026 Election Manifesto</p>
-        <div class="pdf-frame-wrap">
-            <iframe
-                src="Taranbir for EEMA - 2026.pdf"
-                title="Taranbir for EEMA Manifesto 2026"
-                allowfullscreen>
-                <!-- Fallback for browsers that block iframes -->
-                <div class="pdf-fallback" style="display:block;">
-                    <p>Your browser cannot display the PDF inline.</p>
-                    <a href="Taranbir for EEMA - 2026.pdf" download class="download-btn">Download Manifesto PDF</a>
-                </div>
-            </iframe>
+
+        <!-- Loading / error status -->
+        <div class="pdf-status" id="pdfStatus">
+            <div class="spinner" id="pdfSpinner"></div>
+            <p id="pdfStatusText">Loading manifesto…</p>
         </div>
+
+        <!-- Rendered pages get injected here -->
+        <div class="pdf-pages" id="pdfPages"></div>
     </div>
+
+    <!-- PDF.js renders the document as responsive images so it works on ALL devices,
+         including mobile browsers that refuse to show PDFs inside an <iframe>. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        (function () {
+            var PDF_URL = "Taranbir for EEMA - 2026.pdf";
+            var pagesEl  = document.getElementById("pdfPages");
+            var statusEl = document.getElementById("pdfStatus");
+            var statusText = document.getElementById("pdfStatusText");
+            var spinner  = document.getElementById("pdfSpinner");
+
+            function showFallback(message) {
+                if (spinner) spinner.style.display = "none";
+                statusEl.innerHTML =
+                    '<p>' + message + '</p>' +
+                    '<a href="' + PDF_URL + '" download class="download-btn">' +
+                    '<span>Download Manifesto PDF</span></a>';
+            }
+
+            if (!window.pdfjsLib) {
+                showFallback("The manifesto viewer could not load. Please download the PDF instead.");
+                return;
+            }
+
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+            // Render sharply on high-DPI screens, but cap so mobile memory stays sane.
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            pdfjsLib.getDocument(PDF_URL).promise.then(function (pdf) {
+                statusEl.style.display = "none";
+                var chain = Promise.resolve();
+                for (var n = 1; n <= pdf.numPages; n++) {
+                    (function (pageNum) {
+                        chain = chain.then(function () {
+                            return pdf.getPage(pageNum).then(function (page) {
+                                var viewport = page.getViewport({ scale: 1 });
+                                var canvas = document.createElement("canvas");
+                                canvas.className = "pdf-page";
+                                var ctx = canvas.getContext("2d");
+
+                                canvas.width  = viewport.width  * dpr;
+                                canvas.height = viewport.height * dpr;
+                                // Preserve page aspect ratio in the responsive layout.
+                                canvas.style.aspectRatio = viewport.width + " / " + viewport.height;
+
+                                pagesEl.appendChild(canvas);
+                                return page.render({
+                                    canvasContext: ctx,
+                                    viewport: page.getViewport({ scale: dpr })
+                                }).promise;
+                            });
+                        });
+                    })(n);
+                }
+                return chain;
+            }).catch(function (err) {
+                console.error("PDF render failed:", err);
+                showFallback("Unable to display the manifesto here. Please download the PDF to view it.");
+            });
+        })();
+    </script>
 
 </body>
 </html>
