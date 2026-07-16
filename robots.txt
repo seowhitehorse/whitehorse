@@ -6,4 +6,4 @@ Disallow: /private/
 Disallow: /.git/
 Disallow: /.env
 
-Sitemap: https://whitehorseworld.com/sitemap.xml
+Sitemap: https://www.whitehorseworld.com/sitemap.xml
