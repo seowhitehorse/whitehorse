@@ -17,6 +17,9 @@
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.whitehorseworld.com/">
+
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="White Horse Events - Luxury Wedding Planners & Event Management India">
     <meta property="og:description"
@@ -24,18 +27,22 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="White Horse Events">
     <meta property="og:locale" content="en_IN">
+    <meta property="og:url" content="https://www.whitehorseworld.com/">
+    <meta property="og:image" content="https://www.whitehorseworld.com/whitehorse%20logo.png">
+    <meta property="og:image:alt" content="White Horse Events - Event Management Company in Ranchi">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="White Horse Events - Luxury Wedding Planners India">
     <meta name="twitter:description"
         content="Creating unforgettable moments with grace & grandeur. Premium wedding planning and event management services across India.">
+    <meta name="twitter:image" content="https://www.whitehorseworld.com/whitehorse%20logo.png">
 
     <!-- Additional SEO Meta Tags -->
-    <meta name="geo.region" content="IN">
-    <meta name="geo.placename" content="India">
-    <meta name="geo.position" content="20.5937;78.9629">
-    <meta name="ICBM" content="20.5937, 78.9629">
+    <meta name="geo.region" content="IN-JH">
+    <meta name="geo.placename" content="Ranchi, Jharkhand">
+    <meta name="geo.position" content="23.3441;85.3096">
+    <meta name="ICBM" content="23.3441, 85.3096">
 
 
     <!-- Favicon -->
@@ -88,8 +95,8 @@
         "@type": "Organization",
         "name": "White Horse Events",
         "description": "India's leading luxury wedding planners and event management company specializing in bespoke weddings, destination celebrations, and exclusive experiences.",
-        "url": "https://arpanmukherjee2006.github.io/Whitehorseevents/",
-        "logo": "https://arpanmukherjee2006.github.io/Whitehorseevents/whitehorse logo.png",
+        "url": "https://www.whitehorseworld.com/",
+        "logo": "https://www.whitehorseworld.com/whitehorse logo.png",
         "telephone": "+91-94315-81052",
         "email": "info@whitehorseevent.com",
         "address": [
@@ -918,7 +925,6 @@
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
                 </div>
-
 
             </div>
         </div>
@@ -2742,7 +2748,7 @@
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_next"
-                    value="https://arpanmukherjee2006.github.io/Whitehorseevents/landingpage.html?success=true">
+                    value="https://www.whitehorseworld.com/landingpage.html?success=true">
 
                 <!-- Name Field -->
                 <div class="form-group">
@@ -3468,7 +3474,7 @@ WhatsApp: +91-70505-73555
 Email: info@whitehorseevent.com
 Address (Ranchi Office): Sahni Apartment, Ground Floor, P.P Compound, Mahatma Gandhi Main Rd, Ranchi, Jharkhand 834001
 Address (Jamshedpur Office): H.No 10, Diagonal Road, Silvercage Mall, 3rd Floor, Bistupur, Jamshedpur, Jharkhand 831001 | Mobile: 94313 00932
-Website: https://whitehorseevent.com
+Website: https://www.whitehorseworld.com
 Instagram: https://www.instagram.com/whitehorseevent/
 Facebook: https://www.facebook.com/whitehorseevent
 YouTube: https://www.youtube.com/channel/UCPhlg1vrtGLbqbQe2_WdvCQ
@@ -3896,9 +3902,9 @@ IMPORTANT RULES
                         b.classList.add('border-transparent');
                     });
 
-                    // Filter items (data-category may hold multiple space-separated categories)
+                    // Filter items
                     items.forEach(item => {
-                        if ((item.getAttribute('data-category') || '').split(' ').includes(cat)) {
+                        if (item.getAttribute('data-category') === cat) {
                             item.style.display = 'block';
                             item.style.opacity = '1';
                             item.style.transform = 'translateY(0)';
