@@ -1,6 +1,10 @@
 # API Keys - Never push to GitHub
 config.js
 
+# Raw photo dumps - too large for the repo (optimized copies live in images/)
+wetransfer_extracted/
+wetransfer_*.zip
+
 # System files
 .DS_Store
 Thumbs.db
