@@ -104,15 +104,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Show/Hide New Updates section (government and corporate each get their own updates panel)
+        // Show/Hide New Updates section (only for government)
         const newUpdatesSection = document.getElementById('new-updates-section');
         if (newUpdatesSection) {
-            const govtUpdatesPanel = document.getElementById('nu-govt-panel');
-            const corpUpdatesPanel = document.getElementById('nu-corporate-panel');
-            if (filter === 'government' || filter === 'corporate') {
+            if (filter === 'government') {
                 newUpdatesSection.style.display = 'block';
-                if (govtUpdatesPanel) govtUpdatesPanel.style.display = (filter === 'government') ? 'block' : 'none';
-                if (corpUpdatesPanel) corpUpdatesPanel.style.display = (filter === 'corporate') ? 'block' : 'none';
             } else {
                 newUpdatesSection.style.display = 'none';
             }
