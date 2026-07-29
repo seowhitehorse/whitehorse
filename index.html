@@ -3328,7 +3328,8 @@
 
     <script>
     // ── White Horse Chatbot ──────────────────────────────────────────
-    const GROQ_API_KEY = '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';
+    // Key comes from config.js (window.GROQ_API_KEY). Get a free key at https://console.groq.com/keys
+    const GROQ_API_KEY = (window.GROQ_API_KEY && window.GROQ_API_KEY !== 'PASTE_YOUR_NEW_GROQ_KEY_HERE') ? window.GROQ_API_KEY : '';
 
     const WH_SYSTEM_PROMPT = `You are the official AI assistant for White Horse Event Management — a premium event management company based in Ranchi, Jharkhand, India. Answer ONLY about White Horse and its services.
 

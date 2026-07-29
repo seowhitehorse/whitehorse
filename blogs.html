@@ -138,7 +138,47 @@
     <!-- Blog Grid -->
     <section class="px-8 md:px-16 pb-20">
         <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Search & Category Filter -->
+            <div class="mb-10">
+                <div class="mb-6 flex justify-center">
+                    <div class="relative w-full md:w-[28rem]">
+                        <input id="blog-search" type="text" placeholder="Search articles..."
+                            class="w-full pl-12 pr-5 py-3 rounded-full border border-brown/30 focus:border-brown focus:outline-none text-gray-800 bg-white text-sm">
+                        <svg class="w-5 h-5 text-brown absolute left-4 top-1/2 -translate-y-1/2" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div id="blog-filters" class="flex flex-wrap justify-center gap-2">
+                    <button data-cat="all"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-brown text-white">All</button>
+                    <button data-cat="Wedding Planning"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Wedding Planning</button>
+                    <button data-cat="Wedding Venues"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Wedding Venues</button>
+                    <button data-cat="Wedding Catering"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Catering</button>
+                    <button data-cat="Wedding Budget"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Budget</button>
+                    <button data-cat="Wedding Decoration"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Decoration</button>
+                    <button data-cat="Pre-Wedding Events"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Pre-Wedding</button>
+                    <button data-cat="Destination Wedding"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Destination</button>
+                    <button data-cat="Corporate Events"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Corporate</button>
+                    <button data-cat="Event Planning"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Event Planning</button>
+                    <button data-cat="Company"
+                        class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm border border-brown/30 transition-colors bg-white text-brown hover:bg-peach">Company</button>
+                </div>
+            </div>
+
+            <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Blog Post 1 -->
                 <article
@@ -960,6 +1000,11 @@
                 </article>
 
             </div>
+
+            <!-- No Results Message -->
+            <p id="no-results" class="hidden text-center text-muted-brown font-inter text-lg py-12">
+                No articles found. Try a different search or category.
+            </p>
         </div>
     </section>
             
@@ -1054,6 +1099,49 @@
         document.getElementById('mobile-menu-button').addEventListener('click', function () {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+
+        // Blog search & category filter
+        (function () {
+            const search = document.getElementById('blog-search');
+            const grid = document.getElementById('blog-grid');
+            const noResults = document.getElementById('no-results');
+            const btns = Array.from(document.querySelectorAll('#blog-filters .filter-btn'));
+            if (!grid) return;
+            const cards = Array.from(grid.querySelectorAll('article'));
+            let activeCat = 'all';
+
+            function catOf(card) {
+                const el = card.querySelector('.bg-peach');
+                return el ? el.textContent.trim().toLowerCase() : '';
+            }
+
+            function apply() {
+                const q = (search.value || '').trim().toLowerCase();
+                let visible = 0;
+                cards.forEach(card => {
+                    const matchCat = activeCat === 'all' || catOf(card) === activeCat;
+                    const matchText = !q || card.textContent.toLowerCase().includes(q);
+                    const show = matchCat && matchText;
+                    card.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+                if (noResults) noResults.classList.toggle('hidden', visible !== 0);
+            }
+
+            search.addEventListener('input', apply);
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeCat = (btn.dataset.cat || 'all').toLowerCase();
+                    btns.forEach(b => {
+                        b.classList.remove('bg-brown', 'text-white');
+                        b.classList.add('bg-white', 'text-brown', 'hover:bg-peach');
+                    });
+                    btn.classList.add('bg-brown', 'text-white');
+                    btn.classList.remove('bg-white', 'text-brown', 'hover:bg-peach');
+                    apply();
+                });
+            });
+        })();
     </script>
 
 </body>
