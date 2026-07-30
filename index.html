@@ -3889,6 +3889,51 @@ IMPORTANT RULES
         });
     </script>
 
+    <!-- Image Lightbox Popup -->
+    <div id="img-lightbox"
+        style="display:none; position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; padding:20px; cursor:zoom-out;">
+        <span id="img-lightbox-close"
+            style="position:absolute; top:18px; right:26px; color:#fff; font-size:40px; line-height:1; font-weight:300; cursor:pointer; opacity:0.85;">&times;</span>
+        <img id="img-lightbox-img" src="" alt=""
+            style="max-width:95%; max-height:90vh; object-fit:contain; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
+    </div>
+
+    <script>
+        // Image lightbox — click any portfolio / carousel image to view it enlarged
+        (function () {
+            const lb = document.getElementById('img-lightbox');
+            const lbImg = document.getElementById('img-lightbox-img');
+            const grid = document.getElementById('portfolio-grid');
+
+            function openLightbox(src, alt) {
+                lbImg.src = src;
+                lbImg.alt = alt || '';
+                lb.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+            function closeLightbox() {
+                lb.style.display = 'none';
+                lbImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            // Event delegation: works for dynamically-created carousel images too
+            if (grid) {
+                grid.addEventListener('click', function (e) {
+                    const img = e.target.closest('img');
+                    if (img && grid.contains(img)) {
+                        e.preventDefault();
+                        openLightbox(img.currentSrc || img.src, img.alt);
+                    }
+                });
+            }
+            lb.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        })();
+    </script>
+
 
 </body>
 
