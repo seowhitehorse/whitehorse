@@ -10,6 +10,16 @@
       ],
       "destination": "https://www.whitehorseworld.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/event-management-company-jamshedpur.html",
+      "destination": "/event-management-company-in-ranchi.html",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-planner-in-jamshedpur.html",
+      "destination": "/wedding-planner-in-ranchi.html",
+      "permanent": true
     }
   ]
 }
